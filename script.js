@@ -1,5 +1,5 @@
 // ── LUCIDE ICONS ──
-if (typeof lucide !== 'undefined') lucide.createIcons();
+lucide.createIcons();
 
 // ── HERO CAROUSEL ──
 (function () {
@@ -85,6 +85,9 @@ const ANIM = [
   { sel: '.section-sub',    type: 'up',    delay: 200 },
   // Layanan
   { sel: '.layanan-card',   type: 'up',    stagger: 80 },
+  // Paket
+  { sel: '.paket-head',     type: 'up',    delay: 0   },
+  { sel: '.paket-card',     type: 'up',    stagger: 90 },
   // Portofolio
   { sel: '.porto-filter',   type: 'up',    delay: 260 },
   { sel: '.porto-card',     type: 'up',    stagger: 80 },
