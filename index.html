@@ -5,95 +5,140 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NextTime</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="#home" class="logo">Next<span>Time</span></a>
+  <a href="#home" class="logo">NextTi<span>me</span></a>
   <ul>
     <li><a href="#home">Home</a></li>
     <li><a href="#layanan">Layanan</a></li>
     <li><a href="#portofolio">Portofolio</a></li>
     <li><a href="#galeri">Galeri</a></li>
-    <li><a href="#kontak" class="nav-cta">Kontak</a></li>
+    <li><a href="#kontak" class="nav-cta">Konsultasi</a></li>
   </ul>
 </nav>
 
 <!-- HOME / HERO -->
 <section class="hero" id="home">
-  <div class="badge">Kami Siap Membantu Bisnis Anda</div>
-  <h1>Wujudkan Ide Anda<br>Bersama <span class="highlight">NextTime</span></h1>
-  <p>Kami adalah tim kreatif yang berdedikasi menghadirkan solusi desain dan teknologi terbaik untuk pertumbuhan bisnis Anda.</p>
-  <div class="hero-actions">
-    <a href="#layanan" class="btn-primary">Lihat Layanan →</a>
-    <a href="#kontak" class="btn-outline">Hubungi Kami</a>
+  <div class="hero-slides">
+
+    <!-- Slide 1 -->
+    <div class="hero-slide active">
+      <div class="badge">Kami Siap Membantu Bisnis Anda</div>
+      <h1>Wujudkan Ide Anda<br>Bersama <span class="highlight">NextTime</span></h1>
+      <p>Kami adalah tim kreatif yang berdedikasi menghadirkan solusi desain dan teknologi terbaik untuk pertumbuhan bisnis Anda.</p>
+      <div class="hero-actions">
+        <a href="#layanan" class="btn-primary">Lihat Layanan →</a>
+        <a href="#kontak" class="btn-outline">Hubungi Kami</a>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="hero-slide">
+      <div class="badge">Desain · Teknologi · Pertumbuhan</div>
+      <h1>Solusi Digital untuk<br><span class="highlight">Bisnis Modern</span></h1>
+      <p>Dari website, aplikasi dashboard, hingga strategi pemasaran digital — semua dikerjakan dengan standar kualitas tertinggi.</p>
+      <div class="hero-actions">
+        <a href="#portofolio" class="btn-primary">Lihat Portofolio →</a>
+        <a href="#layanan" class="btn-outline">Eksplorasi Layanan</a>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="hero-slide">
+      <div class="badge">Jadilah Partner Awal Kami</div>
+      <h1>Jasa Pembuatan Website <span class="highlight">Terjangkau</span></h1>
+      <p>Menghadirkan solusi kreatif dan teknologi yang mendorong pertumbuhan bisnis yang nyata dan berkelanjutan.</p>
+      <div class="hero-actions">
+        <a href="#kontak" class="btn-primary">Mulai Proyek →</a>
+        <a href="#portofolio" class="btn-outline">Lihat Karya Kami</a>
+      </div>
+    </div>
+
   </div>
-  <div class="stats">
-    <div class="stat">
-      <div class="num">150<span>+</span></div>
-      <div class="label">Proyek Selesai</div>
-    </div>
-    <div class="stat">
-      <div class="num">80<span>+</span></div>
-      <div class="label">Klien Puas</div>
-    </div>
-    <div class="stat">
-      <div class="num">7<span>+</span></div>
-      <div class="label">Tahun Pengalaman</div>
-    </div>
-    <div class="stat">
-      <div class="num">4.9<span>★</span></div>
-      <div class="label">Rating Klien</div>
-    </div>
+
+  <!-- Indikator dot -->
+  <div class="hero-dots">
+    <button class="hero-dot active" aria-label="Slide 1"></button>
+    <button class="hero-dot" aria-label="Slide 2"></button>
+    <button class="hero-dot" aria-label="Slide 3"></button>
   </div>
 </section>
 
 <!-- LAYANAN -->
 <section class="layanan" id="layanan">
   <div class="section-head-center">
-    <span class="section-label">Apa yang Kami Tawarkan</span>
+    <span class="section-label">Apa yang Kami Kerjakan</span>
     <h2 class="section-title">Layanan Kami</h2>
-    <p class="section-sub">Solusi lengkap untuk kebutuhan digital bisnis Anda — dari konsep hingga peluncuran.</p>
+    <p class="section-sub">Kami spesialis pembuatan website profesional untuk berbagai kebutuhan bisnis Anda.</p>
   </div>
   <div class="layanan-grid">
+
     <div class="layanan-card">
-      <div class="layanan-icon">🎨</div>
-      <h3>Desain UI/UX</h3>
-      <p>Antarmuka yang indah, intuitif, dan berpusat pada pengguna. Kami merancang pengalaman yang membuat pengguna betah.</p>
-      <span class="tag-price">Mulai dari Rp 3 Juta</span>
+      <div class="layanan-icon"><i data-lucide="briefcase"></i></div>
+      <h3>Company Profile</h3>
+      <p>Tampilkan identitas dan keunggulan perusahaan secara profesional kepada calon klien dan mitra bisnis.</p>
     </div>
+
     <div class="layanan-card">
-      <div class="layanan-icon">💻</div>
-      <h3>Pengembangan Web</h3>
-      <p>Website profesional, cepat, dan responsif menggunakan teknologi modern yang sesuai kebutuhan bisnis Anda.</p>
-      <span class="tag-price">Mulai dari Rp 5 Juta</span>
+      <div class="layanan-icon"><i data-lucide="store"></i></div>
+      <h3>Website UMKM</h3>
+      <p>Kehadiran digital representatif untuk usaha kecil dan menengah agar lebih dipercaya pelanggan.</p>
     </div>
+
     <div class="layanan-card">
-      <div class="layanan-icon">📱</div>
-      <h3>Aplikasi Mobile</h3>
-      <p>Aplikasi Android dan iOS yang powerful, ringan, dan mudah digunakan oleh seluruh segmen pengguna Anda.</p>
-      <span class="tag-price">Mulai dari Rp 15 Juta</span>
+      <div class="layanan-icon"><i data-lucide="layout-template"></i></div>
+      <h3>Landing Page</h3>
+      <p>Halaman fokus untuk produk atau kampanye tertentu yang dirancang memaksimalkan konversi pengunjung.</p>
     </div>
+
     <div class="layanan-card">
-      <div class="layanan-icon">📸</div>
-      <h3>Fotografi & Videografi</h3>
-      <p>Konten visual berkualitas tinggi untuk kebutuhan branding, produk, event, dan media sosial perusahaan Anda.</p>
-      <span class="tag-price">Mulai dari Rp 1,5 Juta</span>
+      <div class="layanan-icon"><i data-lucide="shopping-cart"></i></div>
+      <h3>Toko Online</h3>
+      <p>Platform jual beli lengkap dengan manajemen produk, keranjang belanja, dan integrasi pembayaran.</p>
     </div>
+
     <div class="layanan-card">
-      <div class="layanan-icon">📣</div>
-      <h3>Digital Marketing</h3>
-      <p>Strategi pemasaran digital terukur — SEO, social media, iklan berbayar, dan konten yang mendorong konversi.</p>
-      <span class="tag-price">Mulai dari Rp 2 Juta/bln</span>
+      <div class="layanan-icon"><i data-lucide="palette"></i></div>
+      <h3>Web Portofolio</h3>
+      <p>Showcase karya dan pencapaian Anda dengan tampilan kreatif yang menonjolkan personal branding.</p>
     </div>
+
     <div class="layanan-card">
-      <div class="layanan-icon">🔧</div>
-      <h3>Maintenance & Support</h3>
-      <p>Layanan pemeliharaan, pembaruan, dan dukungan teknis berkelanjutan agar sistem Anda selalu berjalan optimal.</p>
-      <span class="tag-price">Mulai dari Rp 800 Ribu/bln</span>
+      <div class="layanan-icon"><i data-lucide="graduation-cap"></i></div>
+      <h3>Web Sekolah / Kampus</h3>
+      <p>Profil institusi, program studi, berita akademik, dan portal informasi yang lengkap dan mudah dikelola.</p>
     </div>
+
+    <div class="layanan-card">
+      <div class="layanan-icon"><i data-lucide="utensils"></i></div>
+      <h3>Web Restoran</h3>
+      <p>Menu digital interaktif, sistem reservasi meja, dan profil restoran yang menggugah selera pelanggan.</p>
+    </div>
+
+    <div class="layanan-card">
+      <div class="layanan-icon"><i data-lucide="building-2"></i></div>
+      <h3>Web Hotel</h3>
+      <p>Informasi fasilitas, galeri kamar, sistem booking online, dan integrasi manajemen reservasi tamu.</p>
+    </div>
+
+    <div class="layanan-card">
+      <div class="layanan-icon"><i data-lucide="plane"></i></div>
+      <h3>Web Travel</h3>
+      <p>Paket wisata, booking perjalanan, dan destinasi lengkap untuk biro perjalanan modern.</p>
+    </div>
+
+    <div class="layanan-card">
+      <div class="layanan-icon"><i data-lucide="layout-dashboard"></i></div>
+      <h3>Web Dashboard</h3>
+      <p>Panel kontrol data bisnis dengan visualisasi, laporan otomatis, dan manajemen pengguna berbasis peran.</p>
+    </div>
+
   </div>
+  <p class="layanan-more">dan website lainnya sesuai kebutuhan bisnis Anda</p>
 </section>
 
 <!-- PORTOFOLIO -->
