@@ -146,3 +146,47 @@ const observer = new IntersectionObserver(entries => {
 });
 
 document.querySelectorAll('[data-anim]').forEach(el => observer.observe(el));
+
+// ── WA FAB + MODAL ──
+(function () {
+  const fab     = document.getElementById('waFab');
+  const overlay = document.getElementById('waOverlay');
+  const closeBtn = document.getElementById('waModalClose');
+  if (!fab || !overlay) return;
+
+  // Tampilkan FAB saat section layanan masuk viewport
+  const layanan = document.getElementById('layanan');
+  const fabObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      fab.hidden = !entry.isIntersecting;
+    });
+  }, { threshold: 0.15 });
+  fabObserver.observe(layanan);
+
+  function openModal() {
+    overlay.setAttribute('aria-hidden', 'false');
+    overlay.classList.add('open');
+    overlay.classList.remove('closing');
+  }
+
+  function closeModal() {
+    overlay.classList.add('closing');
+    overlay.addEventListener('animationend', () => {
+      overlay.classList.remove('open', 'closing');
+      overlay.setAttribute('aria-hidden', 'true');
+    }, { once: true });
+  }
+
+  fab.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+
+  // Klik overlay di luar modal = tutup
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay) closeModal();
+  });
+
+  // ESC = tutup
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+  });
+})();
