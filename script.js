@@ -88,6 +88,9 @@ const ANIM = [
   // Paket
   { sel: '.paket-head',     type: 'up',    delay: 0   },
   { sel: '.paket-card',     type: 'up',    stagger: 90 },
+  // Kenapa Kami
+  { sel: '.kenapa-item',    type: 'left',  stagger: 80 },
+  { sel: '.kenapa-cta',     type: 'right', delay: 100  },
   // Portofolio
   { sel: '.porto-filter',   type: 'up',    delay: 260 },
   { sel: '.porto-card',     type: 'up',    stagger: 80 },

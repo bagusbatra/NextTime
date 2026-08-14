@@ -5,12 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NextTime</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="assets/default-logo.png" type="image/x-icon" />
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <a href="#home" class="logo">NextTi<span>me</span></a>
+  <a href="#home" class="logo">
+    <span class="logo-mark">
+      <img src="assets/default-logo.png" alt="" class="logo-img logo-img--light">
+      <img src="assets/white-logo.png" alt="" class="logo-img logo-img--dark">
+    </span>
+    NextTi<span>me</span>
+  </a>
   <ul>
     <li><a href="#home">Home</a></li>
     <li><a href="#layanan">Layanan</a></li>
@@ -237,74 +244,240 @@
   </div>
 </section>
 
+<!-- KENAPA HARUS DI NEXTTIME -->
+<section class="kenapa" id="kenapa">
+  <div class="section-head-center">
+    <span class="section-label">Keunggulan Kami</span>
+    <h2 class="section-title">Kenapa Harus Di NextTime</h2>
+    <p class="section-sub">Alasan klien mempercayakan pembuatan website kepada NextTime.</p>
+  </div>
+  <div class="kenapa-layout">
+
+    <div class="kenapa-list">
+
+      <div class="kenapa-item">
+        <div class="kenapa-icon"><i data-lucide="wallet"></i></div>
+        <div class="kenapa-item-body">
+          <h3>Harga Terjangkau</h3>
+          <p>Paket fleksibel dengan kualitas premium tanpa membebani budget bisnis Anda.</p>
+        </div>
+      </div>
+
+      <div class="kenapa-item">
+        <div class="kenapa-icon"><i data-lucide="sparkles"></i></div>
+        <div class="kenapa-item-body">
+          <h3>Desain Modern & Responsif</h3>
+          <p>Tampilan up-to-date yang tetap optimal di semua perangkat, dari desktop hingga mobile.</p>
+        </div>
+      </div>
+
+      <div class="kenapa-item">
+        <div class="kenapa-icon"><i data-lucide="zap"></i></div>
+        <div class="kenapa-item-body">
+          <h3>Pengerjaan Cepat</h3>
+          <p>Proses pengembangan efisien dengan timeline jelas tanpa mengorbankan kualitas.</p>
+        </div>
+      </div>
+
+      <div class="kenapa-item">
+        <div class="kenapa-icon"><i data-lucide="headset"></i></div>
+        <div class="kenapa-item-body">
+          <h3>Support Berkelanjutan</h3>
+          <p>Pendampingan dan bantuan teknis setelah website Anda live, bukan sekadar selesai proyek.</p>
+        </div>
+      </div>
+
+      <div class="kenapa-item">
+        <div class="kenapa-icon"><i data-lucide="users"></i></div>
+        <div class="kenapa-item-body">
+          <h3>Tim Berpengalaman</h3>
+          <p>Ditangani langsung oleh tim yang memahami kebutuhan digital berbagai jenis bisnis.</p>
+        </div>
+      </div>
+
+      <div class="kenapa-item">
+        <div class="kenapa-icon"><i data-lucide="heart-handshake"></i></div>
+        <div class="kenapa-item-body">
+          <h3>Kepuasan Klien</h3>
+          <p>Komunikasi transparan dan revisi sesuai paket demi hasil yang benar-benar sesuai harapan.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="kenapa-cta">
+      <img src="assets/why.png" alt="Kenapa harus di NextTime" class="kenapa-cta-img">
+      <a href="#kontak" class="btn-primary kenapa-cta-btn">Konsultasi Gratis →</a>
+    </div>
+
+  </div>
+</section>
+
 <!-- PORTOFOLIO -->
 <section class="portofolio" id="portofolio">
   <div class="section-head-center">
-    <span class="section-label">Karya Terbaik Kami</span>
+    <span class="section-label">Proyek & Konsep</span>
     <h2 class="section-title">Portofolio</h2>
-    <p class="section-sub">Beberapa proyek unggulan yang telah kami kerjakan bersama klien dari berbagai industri.</p>
+    <p class="section-sub">Kami baru memulai — berikut mockup dan konsep website yang kami bangun untuk menunjukkan kemampuan terbaik kami.</p>
   </div>
   <div class="porto-filter">
     <button class="filter-btn active">Semua</button>
-    <button class="filter-btn">Web</button>
-    <button class="filter-btn">Mobile</button>
-    <button class="filter-btn">Branding</button>
-    <button class="filter-btn">Marketing</button>
+    <button class="filter-btn">Web Profil</button>
+    <button class="filter-btn">Toko Online</button>
+    <button class="filter-btn">Landing Page</button>
+    <button class="filter-btn">Web App</button>
   </div>
   <div class="porto-grid">
+
+    <!-- Mockup 1: Restoran -->
     <div class="porto-card">
-      <div class="porto-thumb" style="background: linear-gradient(135deg, #e0f7fa, #b2ebf2);">🛒</div>
+      <div class="porto-thumb">
+        <div class="mock-browser">
+          <div class="mock-bar">
+            <div class="mock-dots"><span></span><span></span><span></span></div>
+            <div class="mock-addr"></div>
+          </div>
+          <div class="mock-page mock-resto">
+            <div class="mock-pnav"></div>
+            <div class="mock-phero"></div>
+            <div class="mock-prow">
+              <div class="mock-pcard"></div>
+              <div class="mock-pcard"></div>
+              <div class="mock-pcard"></div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="porto-body">
-        <span class="porto-tag">Web</span>
-        <h3>Toko Online Nusantara</h3>
-        <p>Platform e-commerce dengan fitur pembayaran terintegrasi, manajemen stok, dan dashboard penjualan real-time.</p>
-        <a href="#" class="porto-link">Lihat Detail →</a>
+        <span class="porto-tag">Web Restoran</span>
+        <h3>Dapur Nusantara</h3>
+        <p>Website restoran dengan menu digital interaktif, sistem reservasi meja, dan galeri hidangan yang menggugah selera.</p>
+        <span class="porto-mockup-label">✦ Mockup Konsep</span>
       </div>
     </div>
+
+    <!-- Mockup 2: Toko Online -->
     <div class="porto-card">
-      <div class="porto-thumb" style="background: linear-gradient(135deg, #fff8e1, #ffecb3);">🏥</div>
+      <div class="porto-thumb">
+        <div class="mock-browser">
+          <div class="mock-bar">
+            <div class="mock-dots"><span></span><span></span><span></span></div>
+            <div class="mock-addr"></div>
+          </div>
+          <div class="mock-page mock-shop">
+            <div class="mock-pnav"></div>
+            <div class="mock-prow mock-pgrid">
+              <div class="mock-pcard"></div>
+              <div class="mock-pcard"></div>
+              <div class="mock-pcard"></div>
+              <div class="mock-pcard"></div>
+            </div>
+            <div class="mock-ptext"></div>
+          </div>
+        </div>
+      </div>
       <div class="porto-body">
-        <span class="porto-tag">Mobile</span>
-        <h3>Aplikasi Klinik Sehat</h3>
-        <p>Aplikasi mobile untuk booking dokter, rekam medis digital, dan konsultasi online bagi pasien dan tenaga medis.</p>
-        <a href="#" class="porto-link">Lihat Detail →</a>
+        <span class="porto-tag">Toko Online</span>
+        <h3>Batik Elegan Store</h3>
+        <p>Platform e-commerce UMKM fashion batik dengan katalog produk, keranjang belanja, dan integrasi pembayaran lokal.</p>
+        <span class="porto-mockup-label">✦ Mockup Konsep</span>
       </div>
     </div>
+
+    <!-- Mockup 3: Company Profile -->
     <div class="porto-card">
-      <div class="porto-thumb" style="background: linear-gradient(135deg, #e8f5e9, #c8e6c9);">🌿</div>
+      <div class="porto-thumb">
+        <div class="mock-browser">
+          <div class="mock-bar">
+            <div class="mock-dots"><span></span><span></span><span></span></div>
+            <div class="mock-addr"></div>
+          </div>
+          <div class="mock-page mock-company">
+            <div class="mock-pnav"></div>
+            <div class="mock-phero mock-phero--split">
+              <div class="mock-phero-text"></div>
+              <div class="mock-phero-img"></div>
+            </div>
+            <div class="mock-prow">
+              <div class="mock-pcard"></div>
+              <div class="mock-pcard"></div>
+              <div class="mock-pcard"></div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="porto-body">
-        <span class="porto-tag">Branding</span>
-        <h3>Rebranding Agro Lestari</h3>
-        <p>Identitas visual lengkap untuk perusahaan agribisnis: logo, panduan merek, kemasan produk, dan aset digital.</p>
-        <a href="#" class="porto-link">Lihat Detail →</a>
+        <span class="porto-tag">Web Profil</span>
+        <h3>Studio Kreatif Co.</h3>
+        <p>Website company profile modern dengan portofolio, profil tim, halaman layanan, dan formulir kontak yang elegan.</p>
+        <span class="porto-mockup-label">✦ Mockup Konsep</span>
       </div>
     </div>
-    <div class="porto-card">
-      <div class="porto-thumb" style="background: linear-gradient(135deg, #e8eaf6, #c5cae9);">📊</div>
+
+    <!-- Segera Hadir 1 -->
+    <div class="porto-card porto-card--soon">
+      <div class="porto-thumb porto-thumb--soon">
+        <i data-lucide="building-2"></i>
+        <span>Segera Hadir</span>
+      </div>
       <div class="porto-body">
-        <span class="porto-tag">Web</span>
-        <h3>Dashboard Analitik Fintech</h3>
-        <p>Sistem dashboard data keuangan dengan visualisasi interaktif, laporan otomatis, dan manajemen pengguna.</p>
-        <a href="#" class="porto-link">Lihat Detail →</a>
+        <span class="porto-tag porto-tag--soon">Web Hotel</span>
+        <h3>Hotel Bintang Timur</h3>
+        <p>Website hotel dengan sistem booking kamar, galeri fasilitas, dan integrasi manajemen reservasi tamu online.</p>
       </div>
     </div>
-    <div class="porto-card">
-      <div class="porto-thumb" style="background: linear-gradient(135deg, #fce4ec, #f8bbd0);">🎓</div>
+
+    <!-- Segera Hadir 2 -->
+    <div class="porto-card porto-card--soon">
+      <div class="porto-thumb porto-thumb--soon">
+        <i data-lucide="plane"></i>
+        <span>Segera Hadir</span>
+      </div>
       <div class="porto-body">
-        <span class="porto-tag">Mobile</span>
-        <h3>Platform Belajar EduKita</h3>
-        <p>Aplikasi e-learning dengan video interaktif, kuis, sertifikasi, dan fitur komunitas belajar online.</p>
-        <a href="#" class="porto-link">Lihat Detail →</a>
+        <span class="porto-tag porto-tag--soon">Web Travel</span>
+        <h3>Jelajah Wisata Nusa</h3>
+        <p>Biro perjalanan digital dengan katalog paket wisata, booking online, dan destinasi pilihan seluruh Indonesia.</p>
       </div>
     </div>
-    <div class="porto-card">
-      <div class="porto-thumb" style="background: linear-gradient(135deg, #e0f2f1, #b2dfdb);">📣</div>
-      <div class="porto-body">
-        <span class="porto-tag">Marketing</span>
-        <h3>Kampanye Digital CaféRasa</h3>
-        <p>Strategi pemasaran 360° untuk jaringan kafe: konten media sosial, iklan digital, dan program loyalitas pelanggan.</p>
-        <a href="#" class="porto-link">Lihat Detail →</a>
+
+    <!-- Segera Hadir 3 -->
+    <div class="porto-card porto-card--soon">
+      <div class="porto-thumb porto-thumb--soon">
+        <i data-lucide="layout-dashboard"></i>
+        <span>Segera Hadir</span>
       </div>
+      <div class="porto-body">
+        <span class="porto-tag porto-tag--soon">Web App</span>
+        <h3>Dashboard Bisnis Pro</h3>
+        <p>Panel kontrol analitik bisnis dengan grafik real-time, laporan otomatis, dan manajemen pengguna berbasis peran.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- KLIEN -->
+<section class="klien" id="klien">
+  <div class="klien-marquee">
+    <div class="klien-track">
+      <div class="klien-logo"><i data-lucide="hexagon"></i><span>Nexa</span></div>
+      <div class="klien-logo"><i data-lucide="triangle"></i><span>Vertex</span></div>
+      <div class="klien-logo"><i data-lucide="orbit"></i><span>Orbita</span></div>
+      <div class="klien-logo"><i data-lucide="sun"></i><span>Lumen</span></div>
+      <div class="klien-logo"><i data-lucide="mountain"></i><span>Astra</span></div>
+      <div class="klien-logo"><i data-lucide="zap"></i><span>Kinetic</span></div>
+      <div class="klien-logo"><i data-lucide="anchor"></i><span>Solace</span></div>
+      <div class="klien-logo"><i data-lucide="compass"></i><span>Vantage</span></div>
+
+      <!-- duplikat untuk loop tanpa jeda -->
+      <div class="klien-logo" aria-hidden="true"><i data-lucide="hexagon"></i><span>Nexa</span></div>
+      <div class="klien-logo" aria-hidden="true"><i data-lucide="triangle"></i><span>Vertex</span></div>
+      <div class="klien-logo" aria-hidden="true"><i data-lucide="orbit"></i><span>Orbita</span></div>
+      <div class="klien-logo" aria-hidden="true"><i data-lucide="sun"></i><span>Lumen</span></div>
+      <div class="klien-logo" aria-hidden="true"><i data-lucide="mountain"></i><span>Astra</span></div>
+      <div class="klien-logo" aria-hidden="true"><i data-lucide="zap"></i><span>Kinetic</span></div>
+      <div class="klien-logo" aria-hidden="true"><i data-lucide="anchor"></i><span>Solace</span></div>
+      <div class="klien-logo" aria-hidden="true"><i data-lucide="compass"></i><span>Vantage</span></div>
     </div>
   </div>
 </section>
@@ -312,47 +485,145 @@
 <!-- GALERI -->
 <section class="galeri" id="galeri">
   <div class="section-head-center" style="margin-bottom:3rem">
-    <span class="section-label">Momen & Karya</span>
+    <span class="section-label">Proses Kreatif</span>
     <h2 class="section-title">Galeri</h2>
-    <p class="section-sub" style="margin:0 auto 0">Sekilas pandang proses kreatif, tim, dan hasil kerja kami di berbagai proyek.</p>
+    <p class="section-sub" style="margin:0 auto 0">Dari ide ke kenyataan — sekilas pendekatan desain, tools, dan proses kreatif yang kami gunakan di setiap proyek.</p>
   </div>
   <div class="gallery-grid">
+
+    <!-- 1. wide: Alur kerja -->
     <div class="g-item wide">
-      <div class="g-thumb" style="background: linear-gradient(135deg, #0B2027, #03A5C3);">🖥️</div>
-      <div class="g-overlay"><span>Workshop Desain UI — Jakarta 2024</span></div>
+      <div class="g-thumb g-workflow">
+        <div class="g-wf-step"><i data-lucide="lightbulb"></i><span>Riset</span></div>
+        <div class="g-wf-arrow">→</div>
+        <div class="g-wf-step"><i data-lucide="pencil-ruler"></i><span>Wireframe</span></div>
+        <div class="g-wf-arrow">→</div>
+        <div class="g-wf-step"><i data-lucide="palette"></i><span>Desain</span></div>
+        <div class="g-wf-arrow">→</div>
+        <div class="g-wf-step"><i data-lucide="code-2"></i><span>Develop</span></div>
+        <div class="g-wf-arrow">→</div>
+        <div class="g-wf-step"><i data-lucide="rocket"></i><span>Launch</span></div>
+      </div>
+      <div class="g-overlay"><span>Alur Kerja Proyek Kami</span></div>
     </div>
+
+    <!-- 2. tall: Wireframe -->
     <div class="g-item tall">
-      <div class="g-thumb" style="background: linear-gradient(135deg, #C9A66B, #f0c987);">📸</div>
-      <div class="g-overlay"><span>Sesi Foto Produk Klien</span></div>
+      <div class="g-thumb g-wireframe">
+        <div class="g-wf-page">
+          <div class="g-wfp-nav"></div>
+          <div class="g-wfp-hero"></div>
+          <div class="g-wfp-row"><div></div><div></div></div>
+          <div class="g-wfp-row"><div></div><div></div><div></div></div>
+          <div class="g-wfp-line"></div>
+          <div class="g-wfp-line" style="width:60%"></div>
+          <div class="g-wfp-line" style="width:75%"></div>
+        </div>
+      </div>
+      <div class="g-overlay"><span>Wireframe & Sketsa Awal</span></div>
     </div>
+
+    <!-- 3. Palet warna -->
     <div class="g-item">
-      <div class="g-thumb" style="background: linear-gradient(135deg, #e8f4f8, #03A5C3);">🤝</div>
-      <div class="g-overlay"><span>Presentasi Proyek</span></div>
+      <div class="g-thumb g-palette">
+        <div class="g-swatch" style="background:#0B2027"></div>
+        <div class="g-swatch" style="background:#03A5C3"></div>
+        <div class="g-swatch" style="background:#C9A66B"></div>
+        <div class="g-swatch" style="background:#e8f4f8"></div>
+        <div class="g-swatch" style="background:#ffffff;border:1px solid #dde"></div>
+      </div>
+      <div class="g-overlay"><span>Sistem Palet Warna</span></div>
     </div>
+
+    <!-- 4. Typography -->
     <div class="g-item">
-      <div class="g-thumb" style="background: linear-gradient(135deg, #0d3a4a, #0B2027);">🎨</div>
-      <div class="g-overlay"><span>Proses Kreatif Tim</span></div>
+      <div class="g-thumb g-typo">
+        <span class="g-typo-h">Aa</span>
+        <div class="g-typo-samples">
+          <span class="g-typo-s1">Heading Bold</span>
+          <span class="g-typo-s2">Body Regular</span>
+          <span class="g-typo-s3">Caption · Small</span>
+        </div>
+      </div>
+      <div class="g-overlay"><span>Typography & Font Pairing</span></div>
     </div>
+
+    <!-- 5. Tools -->
     <div class="g-item">
-      <div class="g-thumb" style="background: linear-gradient(135deg, #fff3d6, #C9A66B);">🏆</div>
-      <div class="g-overlay"><span>Penghargaan Desain 2023</span></div>
+      <div class="g-thumb g-tools">
+        <div class="g-tool-grid">
+          <div class="g-tool-icon" style="background:#1abcfe">F</div>
+          <div class="g-tool-icon" style="background:#007acc">VS</div>
+          <div class="g-tool-icon" style="background:#e34c26">H</div>
+          <div class="g-tool-icon" style="background:#264de4">C</div>
+          <div class="g-tool-icon" style="background:#f7df1e;color:#111">JS</div>
+          <div class="g-tool-icon" style="background:#f05032">Git</div>
+        </div>
+      </div>
+      <div class="g-overlay"><span>Tools yang Kami Gunakan</span></div>
     </div>
+
+    <!-- 6. wide: UI Components -->
     <div class="g-item wide">
-      <div class="g-thumb" style="background: linear-gradient(135deg, #eaf8fc, #03A5C3);">👩‍💻</div>
-      <div class="g-overlay"><span>Tim NextTime — Offsite 2024</span></div>
+      <div class="g-thumb g-components">
+        <div class="g-comp-row">
+          <div class="g-comp-btn g-btn-primary">Button</div>
+          <div class="g-comp-btn g-btn-outline">Outline</div>
+          <div class="g-comp-badge">Tag</div>
+          <div class="g-comp-badge g-badge-gold">Gold</div>
+        </div>
+        <div class="g-comp-row">
+          <div class="g-comp-card"><div class="g-comp-card-thumb"></div><div class="g-comp-card-lines"><div></div><div></div></div></div>
+          <div class="g-comp-card"><div class="g-comp-card-thumb g-card-alt"></div><div class="g-comp-card-lines"><div></div><div></div></div></div>
+          <div class="g-comp-card"><div class="g-comp-card-thumb g-card-alt2"></div><div class="g-comp-card-lines"><div></div><div></div></div></div>
+          <div class="g-comp-input"><div class="g-comp-label"></div><div class="g-comp-field"></div></div>
+        </div>
+      </div>
+      <div class="g-overlay"><span>UI Components Library</span></div>
     </div>
+
+    <!-- 7. Mobile first -->
     <div class="g-item">
-      <div class="g-thumb" style="background: linear-gradient(135deg, #1a4a5a, #03A5C3);">🚀</div>
-      <div class="g-overlay"><span>Launching Produk Klien</span></div>
+      <div class="g-thumb g-mobile">
+        <div class="g-phone">
+          <div class="g-phone-notch"></div>
+          <div class="g-phone-screen">
+            <div class="g-phone-nav"></div>
+            <div class="g-phone-hero"></div>
+            <div class="g-phone-content">
+              <div></div><div></div><div style="width:65%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="g-overlay"><span>Mobile-first Design</span></div>
     </div>
+
+    <!-- 8. tall: Moodboard -->
     <div class="g-item tall">
-      <div class="g-thumb" style="background: linear-gradient(135deg, #f9f0e0, #C9A66B);">✏️</div>
-      <div class="g-overlay"><span>Sketsa & Wireframing</span></div>
+      <div class="g-thumb g-moodboard">
+        <div class="g-mb-grid">
+          <div style="background:linear-gradient(135deg,#0B2027,#03A5C3);grid-column:span 2"></div>
+          <div style="background:#C9A66B"></div>
+          <div style="background:#e8f4f8"></div>
+          <div style="background:linear-gradient(135deg,#C9A66B,#fdf3dc);grid-row:span 2"></div>
+          <div style="background:#0B2027"></div>
+          <div style="background:#03A5C3"></div>
+          <div style="background:linear-gradient(135deg,#eef9fc,#03A5C3);grid-column:span 2"></div>
+          <div style="background:#fdf3dc"></div>
+        </div>
+      </div>
+      <div class="g-overlay"><span>Moodboard & Konsep Visual</span></div>
     </div>
-    <div class="g-item">
-      <div class="g-thumb" style="background: linear-gradient(135deg, #0B2027, #1a5a70);">📱</div>
-      <div class="g-overlay"><span>Demo Aplikasi Mobile</span></div>
+
+    <!-- 9. Coming soon -->
+    <div class="g-item g-item--soon">
+      <div class="g-thumb g-thumb--soon">
+        <i data-lucide="image-plus"></i>
+        <span>Foto & karya proyek<br>akan segera hadir</span>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -454,7 +725,6 @@
       <ul>
         <li><a href="#">Desain UI/UX</a></li>
         <li><a href="#">Pengembangan Web</a></li>
-        <li><a href="#">Aplikasi Mobile</a></li>
         <li><a href="#">Digital Marketing</a></li>
       </ul>
     </div>
