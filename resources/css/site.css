@@ -100,6 +100,28 @@ nav.scrolled ul a:hover { color: var(--cyan); }
 }
 .nav-cta:hover { opacity: 0.85 !important; }
 
+/* ── NAV TOGGLE (mobile hamburger) ── */
+.nav-toggle {
+  display: none;
+  position: relative;
+  width: 34px; height: 34px;
+  align-items: center; justify-content: center;
+  background: none; border: none; cursor: pointer;
+  padding: 0; flex-shrink: 0;
+  color: var(--petrol);
+  transition: color 0.4s ease;
+}
+nav.scrolled .nav-toggle { color: #fff; }
+.nav-toggle svg { width: 24px; height: 24px; stroke-width: 2.2; fill: none; }
+.nav-toggle-icon {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.nav-toggle-icon--close { opacity: 0; transform: rotate(-90deg) scale(0.7); }
+.nav-toggle.active .nav-toggle-icon--open { opacity: 0; transform: rotate(90deg) scale(0.7); }
+.nav-toggle.active .nav-toggle-icon--close { opacity: 1; transform: rotate(0) scale(1); }
+
 /* ── HERO ── */
 .hero {
   min-height: 100vh;
@@ -109,7 +131,7 @@ nav.scrolled ul a:hover { color: var(--cyan); }
   justify-content: center;
   text-align: center;
   padding: 8rem 6% 5rem;
-  background: url('assets/bg-hero.svg') center center / cover no-repeat;
+  background: url('/assets/bg-hero.svg') center center / cover no-repeat;
   position: relative;
   overflow: hidden;
 }
@@ -967,7 +989,9 @@ section { padding: 6rem 6%; }
   display: flex;
   gap: 0.6rem;
   flex-wrap: wrap;
+  margin-bottom: 2.5rem;
 }
+.porto-filter-row .porto-filter { margin-bottom: 0; }
 .filter-btn {
   background: transparent;
   border: 1.5px solid rgba(3,165,195,0.25);
@@ -1140,6 +1164,88 @@ a.porto-card { cursor: pointer; }
 }
 .breadcrumb:hover { color: var(--cyan); }
 .breadcrumb svg { width: 15px; height: 15px; stroke-width: 2.2; }
+
+/* Header modifier khusus detailproject.html: breadcrumb kiri, kartu serupa kanan */
+.page-header--detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  text-align: left;
+}
+.page-header--detail .breadcrumb { margin-bottom: 0; }
+
+/* ── PROYEK SERUPA (kartu di page-header) ── */
+.related-projects {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: var(--surface);
+  border: 1px solid rgba(3,165,195,0.13);
+  border-radius: 14px;
+  padding: 0.65rem 1.1rem;
+  box-shadow: var(--shadow);
+}
+.related-projects[hidden] { display: none; }
+.related-projects-label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  line-height: 1.3;
+  color: var(--cyan);
+  flex-shrink: 0;
+  padding-right: 0.9rem;
+  border-right: 1px solid rgba(3,165,195,0.15);
+}
+.related-projects-list { display: flex; gap: 0.3rem; }
+
+.related-card {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: inherit;
+  padding: 0.35rem 0.5rem;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+.related-card:hover { background: var(--cyan-dim); }
+
+.related-card-thumb {
+  width: 42px; height: 42px;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.related-card-thumb svg { width: 19px; height: 19px; stroke: #fff; stroke-width: 2.1; fill: none; }
+.related-card-thumb--resto   { background: linear-gradient(135deg, #e07030, #f5a060); }
+.related-card-thumb--shop    { background: linear-gradient(135deg, #5b21b6, #8b5cf6); }
+.related-card-thumb--company { background: linear-gradient(135deg, #0B2027, #03A5C3); }
+
+.related-card-info h4 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--petrol);
+  margin-bottom: 0.1rem;
+  white-space: nowrap;
+}
+.related-card-info span {
+  font-size: 0.66rem;
+  color: var(--text-2);
+}
+
+@media (max-width: 860px) {
+  .page-header--detail { flex-direction: column; align-items: flex-start; }
+  .related-projects { width: 100%; overflow-x: auto; }
+}
+@media (max-width: 480px) {
+  .related-projects-label { display: none; }
+  .related-card-info span { display: none; }
+}
 
 /* ── DETAIL PROYEK ── */
 .project-detail { background: var(--surface); }
@@ -1544,7 +1650,26 @@ footer {
   .g-item.wide { grid-column: span 1; }
 }
 @media (max-width: 768px) {
-  nav ul { display: none; }
+  .nav-toggle { display: flex; }
+  nav ul {
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: rgba(244, 248, 250, 0.98);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(3, 165, 195, 0.18);
+    padding: 0 6%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+  }
+  nav.scrolled ul { background: rgba(11, 32, 39, 0.98); }
+  nav ul.open { max-height: 400px; padding: 0.5rem 6% 1.3rem; }
+  nav ul li { width: 100%; }
+  nav ul a { display: block; padding: 0.8rem 0; }
+  nav ul .nav-cta { display: inline-block; margin: 0.5rem 0 0.3rem; text-align: center; }
   .form-row { grid-template-columns: 1fr; }
   .stats { gap: 2rem; }
   .footer-grid { grid-template-columns: 1fr 1fr; }

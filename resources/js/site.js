@@ -68,6 +68,38 @@ if (nav) {
   updateNav(); // cek posisi awal saat halaman dimuat
 }
 
+// ── NAV TOGGLE (mobile hamburger) ──
+(function () {
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.querySelector('nav ul');
+  if (!navToggle || !navMenu) return;
+
+  function closeMenu() {
+    navToggle.classList.remove('active');
+    navMenu.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  navToggle.addEventListener('click', () => {
+    const isOpen = navMenu.classList.toggle('open');
+    navToggle.classList.toggle('active', isOpen);
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Tutup menu saat salah satu link diklik
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Tutup menu saat ESC atau saat layar dilebarkan melewati breakpoint mobile
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeMenu();
+  });
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) closeMenu();
+  });
+})();
+
 // ── FILTER BUTTONS (Portofolio) ──
 // Setiap tombol punya data-filter ("all" atau slug kategori), setiap kartu
 // punya data-category. Klik tombol menampilkan hanya kartu yang cocok.
@@ -178,7 +210,6 @@ document.querySelectorAll('[data-anim]').forEach(el => observer.observe(el));
   if (!fab || !overlay) return;
 
   // Tampilkan FAB saat section layanan masuk viewport
-  // (halaman tanpa section #layanan, mis. projects.html, langsung menampilkan FAB)
   const layanan = document.getElementById('layanan');
   if (layanan) {
     const fabObserver = new IntersectionObserver(entries => {
@@ -188,7 +219,13 @@ document.querySelectorAll('[data-anim]').forEach(el => observer.observe(el));
     }, { threshold: 0.15 });
     fabObserver.observe(layanan);
   } else {
-    fab.hidden = false;
+    // Halaman tanpa section #layanan (mis. projects.html, detailproject.html):
+    // tampilkan FAB setelah user mulai scroll, agar tidak langsung menutupi
+    // konten teratas saat halaman baru dimuat.
+    const showAfter = 280;
+    const updateFab = () => { fab.hidden = window.scrollY < showAfter; };
+    window.addEventListener('scroll', updateFab, { passive: true });
+    updateFab();
   }
 
   function openModal() {
