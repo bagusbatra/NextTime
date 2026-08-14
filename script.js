@@ -5,6 +5,8 @@ lucide.createIcons();
 (function () {
   const slides = document.querySelectorAll('.hero-slide');
   const dots   = document.querySelectorAll('.hero-dot');
+  if (!slides.length) return; // halaman tanpa hero (mis. projects.html, detailproject.html)
+
   const DURATION = 10000; // 10 detik per slide
   const TRANSITION = 850; // cocok dengan durasi CSS (ms)
   let current = 0;
@@ -55,18 +57,35 @@ const nav  = document.querySelector('nav');
 const hero = document.querySelector('.hero');
 
 function updateNav() {
-  const heroBelowNav = hero.getBoundingClientRect().bottom > 0;
-  nav.classList.toggle('scrolled', !heroBelowNav);
+  // Halaman dengan hero: gelap setelah melewati hero. Halaman tanpa hero (mis.
+  // projects.html, detailproject.html): gelap setelah scroll sedikit.
+  const scrolled = hero ? hero.getBoundingClientRect().bottom <= 0 : window.scrollY > 60;
+  nav.classList.toggle('scrolled', scrolled);
 }
 
-window.addEventListener('scroll', updateNav, { passive: true });
-updateNav(); // cek posisi awal saat halaman dimuat
+if (nav) {
+  window.addEventListener('scroll', updateNav, { passive: true });
+  updateNav(); // cek posisi awal saat halaman dimuat
+}
 
-// ── FILTER BUTTONS ──
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+// ── FILTER BUTTONS (Portofolio) ──
+// Setiap tombol punya data-filter ("all" atau slug kategori), setiap kartu
+// punya data-category. Klik tombol menampilkan hanya kartu yang cocok.
+document.querySelectorAll('.porto-filter').forEach(filterBar => {
+  const grid = filterBar.closest('section')?.querySelector('.porto-grid');
+  if (!grid) return;
+
+  filterBar.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter || 'all';
+      grid.querySelectorAll('.porto-card').forEach(card => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        card.classList.toggle('is-hidden', !match);
+      });
+    });
   });
 });
 
@@ -93,6 +112,7 @@ const ANIM = [
   { sel: '.kenapa-cta',     type: 'right', delay: 100  },
   // Portofolio
   { sel: '.porto-filter',   type: 'up',    delay: 260 },
+  { sel: '.porto-viewall',  type: 'up',    delay: 260 },
   { sel: '.porto-card',     type: 'up',    stagger: 80 },
   // Galeri
   { sel: '.g-item',         type: 'up',    stagger: 55 },
@@ -158,13 +178,18 @@ document.querySelectorAll('[data-anim]').forEach(el => observer.observe(el));
   if (!fab || !overlay) return;
 
   // Tampilkan FAB saat section layanan masuk viewport
+  // (halaman tanpa section #layanan, mis. projects.html, langsung menampilkan FAB)
   const layanan = document.getElementById('layanan');
-  const fabObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      fab.hidden = !entry.isIntersecting;
-    });
-  }, { threshold: 0.15 });
-  fabObserver.observe(layanan);
+  if (layanan) {
+    const fabObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        fab.hidden = !entry.isIntersecting;
+      });
+    }, { threshold: 0.15 });
+    fabObserver.observe(layanan);
+  } else {
+    fab.hidden = false;
+  }
 
   function openModal() {
     overlay.setAttribute('aria-hidden', 'false');

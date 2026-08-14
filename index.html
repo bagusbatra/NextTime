@@ -320,17 +320,21 @@
     <h2 class="section-title">Portofolio</h2>
     <p class="section-sub">Kami baru memulai — berikut mockup dan konsep website yang kami bangun untuk menunjukkan kemampuan terbaik kami.</p>
   </div>
-  <div class="porto-filter">
-    <button class="filter-btn active">Semua</button>
-    <button class="filter-btn">Web Profil</button>
-    <button class="filter-btn">Toko Online</button>
-    <button class="filter-btn">Landing Page</button>
-    <button class="filter-btn">Web App</button>
+  <div class="porto-filter-row">
+    <div class="porto-filter">
+      <button class="filter-btn active" data-filter="all">Semua</button>
+      <button class="filter-btn" data-filter="umkm">UMKM</button>
+      <button class="filter-btn" data-filter="company-profile">Company Profile</button>
+      <button class="filter-btn" data-filter="landing-page">Landing Page</button>
+    </div>
+    <a href="projects.html" class="porto-viewall">
+      Lihat Semua <i data-lucide="arrow-right"></i>
+    </a>
   </div>
   <div class="porto-grid">
 
     <!-- Mockup 1: Restoran -->
-    <div class="porto-card">
+    <a href="detailproject.html?slug=dapur-nusantara" class="porto-card" data-category="umkm">
       <div class="porto-thumb">
         <div class="mock-browser">
           <div class="mock-bar">
@@ -354,10 +358,10 @@
         <p>Website restoran dengan menu digital interaktif, sistem reservasi meja, dan galeri hidangan yang menggugah selera.</p>
         <span class="porto-mockup-label">✦ Mockup Konsep</span>
       </div>
-    </div>
+    </a>
 
     <!-- Mockup 2: Toko Online -->
-    <div class="porto-card">
+    <a href="detailproject.html?slug=batik-elegan-store" class="porto-card" data-category="umkm">
       <div class="porto-thumb">
         <div class="mock-browser">
           <div class="mock-bar">
@@ -382,10 +386,10 @@
         <p>Platform e-commerce UMKM fashion batik dengan katalog produk, keranjang belanja, dan integrasi pembayaran lokal.</p>
         <span class="porto-mockup-label">✦ Mockup Konsep</span>
       </div>
-    </div>
+    </a>
 
     <!-- Mockup 3: Company Profile -->
-    <div class="porto-card">
+    <a href="detailproject.html?slug=studio-kreatif-co" class="porto-card" data-category="company-profile">
       <div class="porto-thumb">
         <div class="mock-browser">
           <div class="mock-bar">
@@ -412,10 +416,10 @@
         <p>Website company profile modern dengan portofolio, profil tim, halaman layanan, dan formulir kontak yang elegan.</p>
         <span class="porto-mockup-label">✦ Mockup Konsep</span>
       </div>
-    </div>
+    </a>
 
     <!-- Segera Hadir 1 -->
-    <div class="porto-card porto-card--soon">
+    <div class="porto-card porto-card--soon" data-category="umkm">
       <div class="porto-thumb porto-thumb--soon">
         <i data-lucide="building-2"></i>
         <span>Segera Hadir</span>
@@ -428,7 +432,7 @@
     </div>
 
     <!-- Segera Hadir 2 -->
-    <div class="porto-card porto-card--soon">
+    <div class="porto-card porto-card--soon" data-category="umkm">
       <div class="porto-thumb porto-thumb--soon">
         <i data-lucide="plane"></i>
         <span>Segera Hadir</span>
@@ -441,7 +445,7 @@
     </div>
 
     <!-- Segera Hadir 3 -->
-    <div class="porto-card porto-card--soon">
+    <div class="porto-card porto-card--soon" data-category="company-profile">
       <div class="porto-thumb porto-thumb--soon">
         <i data-lucide="layout-dashboard"></i>
         <span>Segera Hadir</span>
@@ -450,6 +454,19 @@
         <span class="porto-tag porto-tag--soon">Web App</span>
         <h3>Dashboard Bisnis Pro</h3>
         <p>Panel kontrol analitik bisnis dengan grafik real-time, laporan otomatis, dan manajemen pengguna berbasis peran.</p>
+      </div>
+    </div>
+
+    <!-- Segera Hadir 4 -->
+    <div class="porto-card porto-card--soon" data-category="landing-page">
+      <div class="porto-thumb porto-thumb--soon">
+        <i data-lucide="megaphone"></i>
+        <span>Segera Hadir</span>
+      </div>
+      <div class="porto-body">
+        <span class="porto-tag porto-tag--soon">Landing Page</span>
+        <h3>Promo Produk Cepat</h3>
+        <p>Landing page fokus konversi untuk peluncuran produk atau kampanye promo dengan copywriting dan CTA yang tajam.</p>
       </div>
     </div>
 

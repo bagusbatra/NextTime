@@ -955,11 +955,18 @@ section { padding: 6rem 6%; }
 /* ── PORTOFOLIO ── */
 .portofolio { background: var(--surface); }
 
+.porto-filter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
 .porto-filter {
   display: flex;
   gap: 0.6rem;
   flex-wrap: wrap;
-  margin-bottom: 2.5rem;
 }
 .filter-btn {
   background: transparent;
@@ -979,21 +986,41 @@ section { padding: 6rem 6%; }
   border-color: var(--cyan);
 }
 
+.porto-viewall {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--cyan);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: gap 0.2s;
+}
+.porto-viewall:hover { gap: 0.65rem; }
+.porto-viewall svg { width: 16px; height: 16px; stroke: var(--cyan); stroke-width: 2.2; }
+
 .porto-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 1.5rem;
 }
+.porto-card.is-hidden { display: none; }
 
 .porto-card {
+  display: flex;
+  flex-direction: column;
   background: var(--surface);
   border: 1px solid rgba(3,165,195,0.13);
   border-radius: 14px;
   overflow: hidden;
   box-shadow: var(--shadow);
+  color: inherit;
+  text-decoration: none;
   transition: transform 0.25s, box-shadow 0.25s;
 }
 .porto-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(3,165,195,0.14); }
+a.porto-card { cursor: pointer; }
 
 .porto-thumb {
   height: 190px;
@@ -1090,6 +1117,100 @@ section { padding: 6rem 6%; }
 }
 .porto-card h3 { font-size: 1.05rem; font-weight: 700; color: var(--petrol); margin-bottom: 0.35rem; }
 .porto-card p  { font-size: 0.86rem; color: var(--text-2); margin-bottom: 0.8rem; }
+
+/* ── HALAMAN INTERNAL (projects.html, detailproject.html) ── */
+.page-header {
+  padding: 9.5rem 6% 3.5rem;
+  text-align: center;
+  background: var(--bg-alt);
+}
+.page-header .section-label { margin-bottom: 0.9rem; }
+.page-header .section-title { margin-bottom: 0.6rem; }
+.page-header .section-sub { margin: 0 auto; }
+
+.breadcrumb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-2);
+  font-size: 0.85rem;
+  text-decoration: none;
+  margin-bottom: 1.2rem;
+  transition: color 0.2s;
+}
+.breadcrumb:hover { color: var(--cyan); }
+.breadcrumb svg { width: 15px; height: 15px; stroke-width: 2.2; }
+
+/* ── DETAIL PROYEK ── */
+.project-detail { background: var(--surface); }
+
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 3rem;
+  align-items: start;
+}
+.detail-layout[hidden] { display: none; }
+
+.detail-thumb {
+  height: 340px;
+  background: #dde8ed;
+  border-radius: 16px;
+  padding: 18px 20px 10px;
+  box-sizing: border-box;
+  box-shadow: var(--shadow);
+}
+.detail-thumb .mock-browser { box-shadow: 0 8px 30px rgba(0,0,0,0.24); }
+
+.detail-tag { margin-bottom: 0.8rem; }
+.detail-title {
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  font-weight: 800;
+  color: var(--petrol);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.detail-overview {
+  color: var(--text-2);
+  margin-bottom: 1.8rem;
+  line-height: 1.7;
+}
+
+.detail-features-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--petrol);
+  margin-bottom: 0.9rem;
+}
+.detail-features {
+  list-style: none;
+  padding: 0; margin: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.detail-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  color: var(--text-2);
+}
+.detail-features li i { display: flex; flex-shrink: 0; margin-top: 0.15rem; }
+.detail-features li i svg { width: 16px; height: 16px; stroke: var(--cyan); stroke-width: 2.5; fill: none; }
+
+.detail-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.detail-notfound {
+  text-align: center;
+  padding: 2rem 0 1rem;
+}
+.detail-notfound h1 { font-size: 1.6rem; color: var(--petrol); margin-bottom: 0.6rem; }
+.detail-notfound p { color: var(--text-2); margin-bottom: 1.6rem; }
+
+@media (max-width: 860px) {
+  .detail-layout { grid-template-columns: 1fr; }
+}
 
 /* ── KLIEN (logo marquee) ── */
 .klien {
