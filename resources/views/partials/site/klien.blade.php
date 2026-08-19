@@ -1,25 +1,35 @@
-<!-- KLIEN -->
-<section class="klien" id="klien">
-  <div class="klien-marquee">
-    <div class="klien-track">
-      <div class="klien-logo"><i data-lucide="hexagon"></i><span>Nexa</span></div>
-      <div class="klien-logo"><i data-lucide="triangle"></i><span>Vertex</span></div>
-      <div class="klien-logo"><i data-lucide="orbit"></i><span>Orbita</span></div>
-      <div class="klien-logo"><i data-lucide="sun"></i><span>Lumen</span></div>
-      <div class="klien-logo"><i data-lucide="mountain"></i><span>Astra</span></div>
-      <div class="klien-logo"><i data-lucide="zap"></i><span>Kinetic</span></div>
-      <div class="klien-logo"><i data-lucide="anchor"></i><span>Solace</span></div>
-      <div class="klien-logo"><i data-lucide="compass"></i><span>Vantage</span></div>
+{{--
+  Klien & Partner — $clients: Collection<Client>
+  Section ini murni strip marquee tanpa judul, jadi saat kosong section
+  disembunyikan total (bukan tampil sebagai strip kosong).
+--}}
+@if ($clients->isNotEmpty())
+  <section class="klien" id="klien">
+    <div class="klien-marquee">
+      <div class="klien-track">
+        @foreach ($clients as $client)
+          <div class="klien-logo">
+            @if ($client->logo_path)
+              <img src="{{ asset('storage/'.$client->logo_path) }}" alt="{{ $client->name }}" style="height:1.5rem;width:auto;object-fit:contain">
+            @else
+              <i data-lucide="{{ $client->icon ?? 'hexagon' }}"></i>
+            @endif
+            <span>{{ $client->name }}</span>
+          </div>
+        @endforeach
 
-      <!-- duplikat untuk loop tanpa jeda -->
-      <div class="klien-logo" aria-hidden="true"><i data-lucide="hexagon"></i><span>Nexa</span></div>
-      <div class="klien-logo" aria-hidden="true"><i data-lucide="triangle"></i><span>Vertex</span></div>
-      <div class="klien-logo" aria-hidden="true"><i data-lucide="orbit"></i><span>Orbita</span></div>
-      <div class="klien-logo" aria-hidden="true"><i data-lucide="sun"></i><span>Lumen</span></div>
-      <div class="klien-logo" aria-hidden="true"><i data-lucide="mountain"></i><span>Astra</span></div>
-      <div class="klien-logo" aria-hidden="true"><i data-lucide="zap"></i><span>Kinetic</span></div>
-      <div class="klien-logo" aria-hidden="true"><i data-lucide="anchor"></i><span>Solace</span></div>
-      <div class="klien-logo" aria-hidden="true"><i data-lucide="compass"></i><span>Vantage</span></div>
+        {{-- duplikat untuk loop tanpa jeda --}}
+        @foreach ($clients as $client)
+          <div class="klien-logo" aria-hidden="true">
+            @if ($client->logo_path)
+              <img src="{{ asset('storage/'.$client->logo_path) }}" alt="" style="height:1.5rem;width:auto;object-fit:contain">
+            @else
+              <i data-lucide="{{ $client->icon ?? 'hexagon' }}"></i>
+            @endif
+            <span>{{ $client->name }}</span>
+          </div>
+        @endforeach
+      </div>
     </div>
-  </div>
-</section>
+  </section>
+@endif

@@ -16,9 +16,13 @@
       Lihat Semua <i data-lucide="arrow-right"></i>
     </a>
   </div>
-  <div class="porto-grid">
-    @foreach ($featuredProjects as $project)
-      @include('partials.site.porto-card', ['project' => $project])
-    @endforeach
-  </div>
+  @if ($featuredProjects->isEmpty())
+    <p class="section-empty">Belum ada proyek unggulan yang ditambahkan.</p>
+  @else
+    <div class="porto-grid">
+      @foreach ($featuredProjects as $project)
+        @include('partials.site.porto-card', ['project' => $project])
+      @endforeach
+    </div>
+  @endif
 </section>

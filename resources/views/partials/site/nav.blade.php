@@ -1,9 +1,14 @@
+{{-- NAV — logo mengikuti Setting (grup: site, key: logo_light/logo_dark), fallback ke asset bawaan --}}
+@php
+    $navLogoLight = \App\Models\Setting::get('site.logo_light');
+    $navLogoDark = \App\Models\Setting::get('site.logo_dark');
+@endphp
 <!-- NAV -->
 <nav>
   <a href="{{ route('home') }}#home" class="logo">
     <span class="logo-mark">
-      <img src="{{ asset('assets/default-logo.png') }}" alt="" class="logo-img logo-img--light">
-      <img src="{{ asset('assets/white-logo.png') }}" alt="" class="logo-img logo-img--dark">
+      <img src="{{ $navLogoLight ? asset('storage/'.$navLogoLight) : asset('assets/default-logo.png') }}" alt="" class="logo-img logo-img--light">
+      <img src="{{ $navLogoDark ? asset('storage/'.$navLogoDark) : asset('assets/white-logo.png') }}" alt="" class="logo-img logo-img--dark">
     </span>
     NextTi<span>me</span>
   </a>

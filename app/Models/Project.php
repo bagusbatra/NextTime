@@ -17,6 +17,7 @@ class Project extends Model
         'category',
         'status',
         'mockup_type',
+        'thumbnail_path',
         'icon',
         'summary',
         'overview',

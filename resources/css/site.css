@@ -316,6 +316,17 @@ section { padding: 6rem 6%; }
 .section-head-center { text-align: center; }
 .section-head-center .section-sub { margin-left: auto; margin-right: auto; }
 
+/* Empty state — dipakai saat section belum punya data dari admin */
+.section-empty {
+  text-align: center;
+  color: var(--text-2);
+  font-size: 0.9rem;
+  padding: 2.5rem 1rem;
+  border: 1.5px dashed rgba(3,165,195,0.25);
+  border-radius: 12px;
+  width: 100%;
+}
+
 /* ── LAYANAN ── */
 .layanan { background: var(--surface); }
 
@@ -1031,6 +1042,39 @@ section { padding: 6rem 6%; }
 }
 .porto-card.is-hidden { display: none; }
 
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+.pagination-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  padding: 0 0.6rem;
+  border-radius: 8px;
+  border: 1.5px solid rgba(3,165,195,0.2);
+  color: var(--text-2);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.pagination-link:hover { border-color: var(--cyan); color: var(--cyan); }
+.pagination-link i { width: 16px; height: 16px; }
+.pagination-link--active {
+  background: var(--cyan);
+  border-color: var(--cyan);
+  color: #fff;
+}
+.pagination-link--disabled { opacity: 0.35; cursor: not-allowed; }
+.pagination-link--dots { border: none; }
+
 .porto-card {
   display: flex;
   flex-direction: column;
@@ -1267,6 +1311,7 @@ a.porto-card { cursor: pointer; }
   box-shadow: var(--shadow);
 }
 .detail-thumb .mock-browser { box-shadow: 0 8px 30px rgba(0,0,0,0.24); }
+.detail-thumb--photo { padding: 0; overflow: hidden; }
 
 .detail-tag { margin-bottom: 0.8rem; }
 .detail-title {
@@ -1595,6 +1640,19 @@ a.porto-card { cursor: pointer; }
   box-shadow: 0 4px 18px rgba(3,165,195,0.3);
 }
 .btn-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+
+.form-error { color: #e0554f; font-size: 0.78rem; margin-top: -0.15rem; }
+.form-alert {
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+.form-alert--success {
+  background: rgba(16,185,129,0.12);
+  color: #0d9268;
+  border: 1.5px solid rgba(16,185,129,0.3);
+}
 
 /* ── FOOTER ── */
 footer {

@@ -103,11 +103,15 @@ if (nav) {
 // ── FILTER BUTTONS (Portofolio) ──
 // Setiap tombol punya data-filter ("all" atau slug kategori), setiap kartu
 // punya data-category. Klik tombol menampilkan hanya kartu yang cocok.
+// Tombol filter berupa <a href="..."> (mis. di halaman /projects yang sudah
+// dipaginasi server-side) dilewati — navigasi ditangani browser, bukan JS.
 document.querySelectorAll('.porto-filter').forEach(filterBar => {
   const grid = filterBar.closest('section')?.querySelector('.porto-grid');
   if (!grid) return;
 
   filterBar.querySelectorAll('.filter-btn').forEach(btn => {
+    if (btn.tagName === 'A') return;
+
     btn.addEventListener('click', () => {
       filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
@@ -207,7 +211,7 @@ document.querySelectorAll('[data-anim]').forEach(el => observer.observe(el));
   const fab     = document.getElementById('waFab');
   const overlay = document.getElementById('waOverlay');
   const closeBtn = document.getElementById('waModalClose');
-  if (!fab || !overlay) return;
+  if (!fab) return;
 
   // Tampilkan FAB saat section layanan masuk viewport
   const layanan = document.getElementById('layanan');
@@ -227,6 +231,9 @@ document.querySelectorAll('[data-anim]').forEach(el => observer.observe(el));
     window.addEventListener('scroll', updateFab, { passive: true });
     updateFab();
   }
+
+  // Tanpa modal promo (admin menonaktifkannya) — FAB adalah link langsung ke WA.
+  if (!overlay) return;
 
   function openModal() {
     overlay.setAttribute('aria-hidden', 'false');

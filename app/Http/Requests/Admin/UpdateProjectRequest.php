@@ -24,6 +24,7 @@ class UpdateProjectRequest extends FormRequest
             'category' => ['required', 'in:umkm,company-profile,landing-page'],
             'status' => ['required', 'in:available,soon'],
             'mockup_type' => ['nullable', 'required_if:status,available', 'in:resto,shop,company'],
+            'thumbnail' => ['nullable', 'image', 'max:4096'],
             'icon' => ['nullable', 'required_if:status,soon', 'string', 'max:100'],
             'summary' => ['required', 'string'],
             'overview' => ['nullable', 'required_if:status,available', 'string'],

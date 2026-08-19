@@ -58,6 +58,16 @@
         <x-input-error :messages="$errors->get('mockup_type')" class="mt-2" />
     </div>
 
+    <div class="md:col-span-2">
+        <x-input-label for="thumbnail" value="Thumbnail Gambar Asli (opsional)" />
+        @if ($project->thumbnail_path)
+            <img src="{{ asset('storage/'.$project->thumbnail_path) }}" alt="{{ $project->title }}" class="h-24 rounded-lg object-cover mt-1 mb-2">
+        @endif
+        <input type="file" id="thumbnail" name="thumbnail" accept="image/*" class="mt-1 block w-full text-sm text-gray-500">
+        <p class="mt-1 text-xs text-gray-400">Kosongkan untuk tetap memakai mockup CSS di bawah ini. Jika diisi, gambar ini yang tampil di kartu & halaman detail.</p>
+        <x-input-error :messages="$errors->get('thumbnail')" class="mt-2" />
+    </div>
+
     <div>
         <x-input-label for="icon" value="Ikon Lucide (untuk status Segera Hadir)" />
         <x-text-input id="icon" name="icon" type="text" class="mt-1 block w-full"

@@ -21,8 +21,15 @@ class DatabaseSeeder extends Seeder
             'name' => 'Admin NextTime',
             'email' => 'admin@nexttime.test',
             'password' => bcrypt('password'),
+            'role' => 'admin',
         ]);
 
+        $this->call(HeroSlideSeeder::class);
+        $this->call(ServiceSeeder::class);
+        $this->call(PricingPackageSeeder::class);
+        $this->call(WhyUsItemSeeder::class);
+        $this->call(ClientSeeder::class);
+        $this->call(GalleryItemSeeder::class);
         $this->call(ProjectSeeder::class);
     }
 }

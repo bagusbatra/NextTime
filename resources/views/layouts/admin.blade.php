@@ -37,50 +37,50 @@
             </div>
 
             <nav class="flex-1 overflow-y-auto py-6 px-3 space-y-6">
-                <div class="space-y-1">
-                    <p class="px-3 mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500">Menu</p>
-
-                    @php
-                        $mainMenu = [
+                @php
+                    $menuGroups = [
+                        'Menu' => [
                             ['icon' => 'layout-dashboard', 'label' => 'Dashboard', 'route' => 'admin.dashboard', 'active' => 'admin.dashboard'],
+                        ],
+                        'Konten Halaman Utama' => [
+                            ['icon' => 'gallery-horizontal', 'label' => 'Hero / Slider', 'route' => 'admin.hero-slides.index', 'active' => 'admin.hero-slides.*'],
+                            ['icon' => 'sparkles', 'label' => 'Layanan', 'route' => 'admin.services.index', 'active' => 'admin.services.*'],
+                            ['icon' => 'tags', 'label' => 'Paket Harga', 'route' => 'admin.pricing-packages.index', 'active' => 'admin.pricing-packages.*'],
+                            ['icon' => 'heart-handshake', 'label' => 'Kenapa Kami', 'route' => 'admin.why-us-items.index', 'active' => 'admin.why-us-items.*'],
+                            ['icon' => 'briefcase', 'label' => 'Portofolio', 'route' => 'admin.projects.index', 'active' => 'admin.projects.*'],
+                            ['icon' => 'building-2', 'label' => 'Klien & Partner', 'route' => 'admin.clients.index', 'active' => 'admin.clients.*'],
+                            ['icon' => 'image', 'label' => 'Galeri', 'route' => 'admin.gallery-items.index', 'active' => 'admin.gallery-items.*'],
+                        ],
+                        'Kontak' => [
+                            ['icon' => 'contact', 'label' => 'Info Kontak', 'route' => 'admin.contact-settings.edit', 'active' => 'admin.contact-settings.*'],
+                            ['icon' => 'mail', 'label' => 'Pesan Masuk', 'route' => 'admin.contact-messages.index', 'active' => 'admin.contact-messages.*'],
+                        ],
+                        'Pengaturan' => [
+                            ['icon' => 'message-circle', 'label' => 'Widget WhatsApp', 'route' => 'admin.wa-widget-settings.edit', 'active' => 'admin.wa-widget-settings.*'],
+                            ['icon' => 'settings', 'label' => 'Pengaturan Situs', 'route' => 'admin.settings.edit', 'active' => 'admin.settings.*'],
                             ['icon' => 'users', 'label' => 'Pengguna', 'route' => 'admin.users.index', 'active' => 'admin.users.*'],
-                            ['icon' => 'briefcase', 'label' => 'Proyek', 'route' => 'admin.projects.index', 'active' => 'admin.projects.*'],
-                        ];
-                    @endphp
+                        ],
+                    ];
+                @endphp
 
-                    @foreach ($mainMenu as $item)
-                        @php $isActive = request()->routeIs($item['active']); @endphp
-                        <a href="{{ route($item['route']) }}"
-                           @class([
-                               'flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition',
-                               'bg-cyan-600 text-white' => $isActive,
-                               'text-gray-300 hover:bg-gray-800 hover:text-white' => ! $isActive,
-                           ])>
-                            <i data-lucide="{{ $item['icon'] }}" class="h-4 w-4 shrink-0"></i>
-                            {{ $item['label'] }}
-                        </a>
-                    @endforeach
-                </div>
+                @foreach ($menuGroups as $groupLabel => $items)
+                    <div class="space-y-1">
+                        <p class="px-3 mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500">{{ $groupLabel }}</p>
 
-                <div class="space-y-1">
-                    <p class="px-3 mb-2 text-xs font-semibold uppercase tracking-wider text-gray-500">Segera Hadir</p>
-
-                    @php
-                        $soonMenu = [
-                            ['icon' => 'sparkles', 'label' => 'Layanan'],
-                            ['icon' => 'image', 'label' => 'Galeri'],
-                            ['icon' => 'message-square-quote', 'label' => 'Klien & Testimoni'],
-                            ['icon' => 'settings', 'label' => 'Pengaturan Situs'],
-                        ];
-                    @endphp
-
-                    @foreach ($soonMenu as $item)
-                        <span class="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 cursor-not-allowed">
-                            <i data-lucide="{{ $item['icon'] }}" class="h-4 w-4 shrink-0"></i>
-                            {{ $item['label'] }}
-                        </span>
-                    @endforeach
-                </div>
+                        @foreach ($items as $item)
+                            @php $isActive = request()->routeIs($item['active']); @endphp
+                            <a href="{{ route($item['route']) }}"
+                               @class([
+                                   'flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition',
+                                   'bg-cyan-600 text-white' => $isActive,
+                                   'text-gray-300 hover:bg-gray-800 hover:text-white' => ! $isActive,
+                               ])>
+                                <i data-lucide="{{ $item['icon'] }}" class="h-4 w-4 shrink-0"></i>
+                                {{ $item['label'] }}
+                            </a>
+                        @endforeach
+                    </div>
+                @endforeach
             </nav>
 
             <div class="p-3 border-t border-gray-800">

@@ -2,13 +2,19 @@
 @if ($project->status === 'available')
   <a href="{{ route('projects.show', $project->slug) }}" class="porto-card" data-category="{{ $project->category }}">
     <div class="porto-thumb">
-      @include('partials.site.mockup', ['type' => $project->mockup_type])
+      @if ($project->thumbnail_path)
+        <img src="{{ asset('storage/'.$project->thumbnail_path) }}" alt="{{ $project->title }}" style="width:100%;height:100%;object-fit:cover">
+      @else
+        @include('partials.site.mockup', ['type' => $project->mockup_type])
+      @endif
     </div>
     <div class="porto-body">
       <span class="porto-tag">{{ $project->tag }}</span>
       <h3>{{ $project->title }}</h3>
       <p>{{ $project->summary }}</p>
-      <span class="porto-mockup-label">✦ Mockup Konsep</span>
+      @unless ($project->thumbnail_path)
+        <span class="porto-mockup-label">✦ Mockup Konsep</span>
+      @endunless
     </div>
   </a>
 @else

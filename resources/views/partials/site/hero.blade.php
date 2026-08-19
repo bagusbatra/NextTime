@@ -1,46 +1,42 @@
-<!-- HOME / HERO -->
+{{-- Home / Hero — $heroSlides: Collection<HeroSlide> --}}
 <section class="hero" id="home">
   <div class="hero-slides">
-
-    <!-- Slide 1 -->
-    <div class="hero-slide active">
-      <div class="badge">Kami Siap Membantu Bisnis Anda</div>
-      <h1>Wujudkan Ide Anda<br>Bersama <span class="highlight">NextTime</span></h1>
-      <p>Kami adalah tim kreatif yang berdedikasi menghadirkan solusi desain dan teknologi terbaik untuk pertumbuhan bisnis Anda.</p>
-      <div class="hero-actions">
-        <a href="#layanan" class="btn-primary">Lihat Layanan →</a>
-        <a href="#kontak" class="btn-outline">Hubungi Kami</a>
+    @forelse ($heroSlides as $slide)
+      <div class="hero-slide @if ($loop->first) active @endif">
+        <div class="badge">{{ $slide->badge }}</div>
+        <h1>
+          {{ $slide->title }}
+          @if ($slide->title_highlight)
+            <br><span class="highlight">{{ $slide->title_highlight }}</span>
+          @endif
+        </h1>
+        <p>{{ $slide->description }}</p>
+        <div class="hero-actions">
+          <a href="{{ $slide->primary_cta_link }}" class="btn-primary">{{ $slide->primary_cta_text }}</a>
+          @if ($slide->secondary_cta_text)
+            <a href="{{ $slide->secondary_cta_link }}" class="btn-outline">{{ $slide->secondary_cta_text }}</a>
+          @endif
+        </div>
       </div>
-    </div>
-
-    <!-- Slide 2 -->
-    <div class="hero-slide">
-      <div class="badge">Desain · Teknologi · Pertumbuhan</div>
-      <h1>Solusi Digital untuk<br><span class="highlight">Bisnis Modern</span></h1>
-      <p>Dari website, aplikasi dashboard, hingga strategi pemasaran digital — semua dikerjakan dengan standar kualitas tertinggi.</p>
-      <div class="hero-actions">
-        <a href="#portofolio" class="btn-primary">Lihat Portofolio →</a>
-        <a href="#layanan" class="btn-outline">Eksplorasi Layanan</a>
+    @empty
+      <div class="hero-slide active">
+        <div class="badge">Kami Siap Membantu Bisnis Anda</div>
+        <h1>Wujudkan Ide Anda<br><span class="highlight">Bersama NextTime</span></h1>
+        <p>Kami adalah tim kreatif yang berdedikasi menghadirkan solusi desain dan teknologi terbaik untuk pertumbuhan bisnis Anda.</p>
+        <div class="hero-actions">
+          <a href="#layanan" class="btn-primary">Lihat Layanan →</a>
+          <a href="#kontak" class="btn-outline">Hubungi Kami</a>
+        </div>
       </div>
-    </div>
-
-    <!-- Slide 3 -->
-    <div class="hero-slide">
-      <div class="badge">Jadilah Partner Awal Kami</div>
-      <h1>Jasa Pembuatan Website <span class="highlight">Terjangkau</span></h1>
-      <p>Menghadirkan solusi kreatif dan teknologi yang mendorong pertumbuhan bisnis yang nyata dan berkelanjutan.</p>
-      <div class="hero-actions">
-        <a href="#kontak" class="btn-primary">Mulai Proyek →</a>
-        <a href="#portofolio" class="btn-outline">Lihat Karya Kami</a>
-      </div>
-    </div>
-
+    @endforelse
   </div>
 
-  <!-- Indikator dot -->
-  <div class="hero-dots">
-    <button class="hero-dot active" aria-label="Slide 1"></button>
-    <button class="hero-dot" aria-label="Slide 2"></button>
-    <button class="hero-dot" aria-label="Slide 3"></button>
-  </div>
+  @if ($heroSlides->count() > 1)
+    <!-- Indikator dot -->
+    <div class="hero-dots">
+      @foreach ($heroSlides as $slide)
+        <button class="hero-dot @if ($loop->first) active @endif" aria-label="Slide {{ $loop->iteration }}"></button>
+      @endforeach
+    </div>
+  @endif
 </section>
