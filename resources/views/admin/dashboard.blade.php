@@ -1,12 +1,12 @@
-<x-app-layout>
+<x-admin-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Dashboard Admin
+            Dashboard
         </h2>
     </x-slot>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
+    <div class="py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto space-y-6">
 
             @if (session('status'))
                 <div class="rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-700 px-4 py-3 text-sm">
@@ -14,7 +14,7 @@
                 </div>
             @endif
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
                 <div class="bg-white overflow-hidden shadow-sm rounded-lg p-5">
                     <p class="text-sm text-gray-500">Total Proyek</p>
                     <p class="mt-1 text-3xl font-bold text-gray-900">{{ $stats['total'] }}</p>
@@ -30,6 +30,10 @@
                 <div class="bg-white overflow-hidden shadow-sm rounded-lg p-5">
                     <p class="text-sm text-gray-500">Ditampilkan di Beranda</p>
                     <p class="mt-1 text-3xl font-bold text-gray-900">{{ $stats['featured'] }}</p>
+                </div>
+                <div class="bg-white overflow-hidden shadow-sm rounded-lg p-5">
+                    <p class="text-sm text-gray-500">Total Pengguna</p>
+                    <p class="mt-1 text-3xl font-bold text-gray-900">{{ $stats['users'] }}</p>
                 </div>
             </div>
 
@@ -70,6 +74,35 @@
                 </table>
             </div>
 
+            <div class="bg-white overflow-hidden shadow-sm rounded-lg">
+                <div class="flex items-center justify-between px-6 py-4 border-b border-gray-100">
+                    <h3 class="font-semibold text-gray-800">Pengguna Terbaru</h3>
+                    <a href="{{ route('admin.users.index') }}" class="text-sm text-cyan-600 hover:underline">Lihat semua →</a>
+                </div>
+                <table class="w-full text-sm">
+                    <thead class="bg-gray-50 text-gray-500 text-left">
+                        <tr>
+                            <th class="px-6 py-3 font-medium">Nama</th>
+                            <th class="px-6 py-3 font-medium">Email</th>
+                            <th class="px-6 py-3 font-medium">Bergabung</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        @forelse ($recentUsers as $user)
+                            <tr>
+                                <td class="px-6 py-3 text-gray-900">{{ $user->name }}</td>
+                                <td class="px-6 py-3 text-gray-500">{{ $user->email }}</td>
+                                <td class="px-6 py-3 text-gray-500">{{ $user->created_at->translatedFormat('d M Y') }}</td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="3" class="px-6 py-6 text-center text-gray-400">Belum ada pengguna.</td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
+
         </div>
     </div>
-</x-app-layout>
+</x-admin-layout>

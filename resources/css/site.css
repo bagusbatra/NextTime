@@ -1642,6 +1642,7 @@ footer {
   transition: background 0.2s, color 0.2s;
 }
 .socials a:hover { background: rgba(3,165,195,0.18); color: var(--cyan); }
+.socials a svg { width: 16px; height: 16px; stroke: currentColor; stroke-width: 1.8; fill: none; }
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {

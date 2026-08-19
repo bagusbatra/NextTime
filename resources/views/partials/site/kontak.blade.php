@@ -9,21 +9,21 @@
         <div class="info-icon">📍</div>
         <div>
           <h4>Alamat</h4>
-          <p>Jl. Sudirman No. 45, Jakarta Selatan<br>DKI Jakarta 12190</p>
+          <p>Surabaya, Jawa Timur, Indonesia</p>
         </div>
       </div>
       <div class="info-item">
         <div class="info-icon">📞</div>
         <div>
           <h4>Telepon</h4>
-          <p>+62 812-3456-7890</p>
+          <p>+62 882-2827-2679</p>
         </div>
       </div>
       <div class="info-item">
         <div class="info-icon">✉️</div>
         <div>
           <h4>Email</h4>
-          <p>hello@nexttime.id</p>
+          <p>bagusbatr@gmail.com</p>
         </div>
       </div>
       <div class="info-item">

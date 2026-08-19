@@ -21,7 +21,7 @@
     <h3 class="wa-modal-title" id="waModalTitle">Konsultasi Gratis &amp; Diskon 10%!</h3>
     <p class="wa-modal-msg">Dapatkan penawaran terbaik untuk website impian Anda. Chat langsung dengan tim kami sekarang — respon cepat!</p>
     <a
-      href="https://wa.me/6281234567890?text=Halo%20NextTime%2C%20saya%20tertarik%20dengan%20promo%20website%20dan%20ingin%20konsultasi%20lebih%20lanjut."
+      href="https://wa.me/6288228272679?text=Halo%20NextTime%2C%20saya%20tertarik%20dengan%20promo%20website%20dan%20ingin%20konsultasi%20lebih%20lanjut."
       target="_blank"
       rel="noopener"
       class="wa-modal-btn"
@@ -32,6 +32,6 @@
       </svg>
       Chat via WhatsApp
     </a>
-    <p class="wa-modal-note">Atau hubungi langsung: <a href="tel:+6281234567890">+62 812-3456-7890</a></p>
+    <p class="wa-modal-note">Atau hubungi langsung: <a href="tel:+6288228272679">+62 882-2827-2679</a></p>
   </div>
 </div>
