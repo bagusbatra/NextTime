@@ -4,6 +4,39 @@
 
 ---
 
+## 2026-08-22 — Pasca-Selesai: Perbaikan Test & Tindak Lanjut Audit "Apa yang Kurang"
+
+**Status**: ✅ Selesai — perbaikan technical debt di luar iterasi formal (semua Fase 1/2/11 sudah tuntas sejak 2026-08-19).
+
+**Konteks**: setelah seluruh rencana selesai, dilakukan audit ("apa yang kurang") dengan menjalankan `php artisan test` sungguhan (bukan cuma smoke test manual) — ditemukan 3 test gagal dari 25. Ditindaklanjuti pada sesi ini bersama beberapa perbaikan cepat lain dari daftar audit.
+
+**1. Perbaikan 3 test yang gagal**:
+- `tests/Feature/ExampleTest.php` — mengaktifkan kembali `RefreshDatabase` (sebelumnya dinonaktifkan karena `/` dulu murni statis). Sekarang `/` bergantung pada banyak tabel (hero_slides, dst), jadi migrasi wajib jalan dulu sebelum test.
+- `tests/Feature/Auth/RegistrationTest.php` — ditulis ulang total. Test lama mengasumsikan registrasi publik aktif (sudah ditutup di Iterasi 11). Test baru memverifikasi: `/register` redirect ke `/login`, submit form register tidak membuat user & tidak login, dan **admin bisa** membuat user baru lewat `/admin/users` (jalur yang benar sekarang).
+- Hasil akhir: **26/26 test lulus** (66 assertion), diverifikasi 2x dengan `php artisan test`.
+
+**2. Rate-limit form kontak publik**: `POST /kontak` diberi `throttle:5,1` (maks 5 submit/menit per IP) — mencegah spam. Diuji nyata: 5 percobaan beruntun sukses (302), percobaan ke-6 kena batas (429).
+
+**3. Dashboard admin diperluas**: `DashboardController` & `admin/dashboard.blade.php` sekarang menampilkan ringkasan jumlah konten dari 6 modul baru (Hero, Layanan, Paket Harga, Kenapa Kami, Klien & Partner, Galeri) dengan link langsung ke tiap menu, plus **banner notifikasi** kalau ada pesan kontak baru belum dibaca (link ke Pesan Masuk terfilter status "Baru"). Diuji nyata: banner otomatis muncul/hilang sesuai ada-tidaknya pesan berstatus "new".
+
+**4. `sitemap.xml` ditambahkan**: `Site\SitemapController` + view `sitemap.blade.php`, menghasilkan XML berisi beranda, `/projects`, dan seluruh proyek berstatus "Tayang". Diuji nyata: `GET /sitemap.xml` mengembalikan XML valid berisi 5 URL sesuai data seed saat ini.
+
+**5. Password admin default diganti**: akun `admin@nexttime.test` yang sebelumnya berpassword `password` (dari seeder, hanya untuk dev lokal) diganti dengan password acak 16 karakter yang kuat (`Str::password(16)`). **Password baru sudah disampaikan langsung ke Anda di chat** — bukan dicatat di sini demi keamanan. Diverifikasi login berhasil dengan password baru sebelum dilaporkan.
+
+**Tidak dikerjakan (butuh keputusan/isian dari Anda, bukan wewenang saya mengarang)**:
+- Data dummy klien/galeri/kontak — masih menunggu diisi data asli lewat admin.
+- Notifikasi email pesan kontak masuk & fitur reset password via email — butuh setup SMTP asli (saat ini `MAIL_MAILER=log`), di luar cakupan kerja lokal ini.
+- Pengaturan production (`APP_ENV`, `APP_DEBUG`, dll) — baru relevan saat proses deploy.
+
+**File terdampak**:
+- `tests/Feature/ExampleTest.php`, `tests/Feature/Auth/RegistrationTest.php`
+- `routes/web.php` (throttle kontak, route sitemap)
+- `app/Http/Controllers/Site/SitemapController.php` (baru), `resources/views/sitemap.blade.php` (baru)
+- `app/Http/Controllers/Admin/DashboardController.php`, `resources/views/admin/dashboard.blade.php`
+- Data: password `admin@nexttime.test` diganti langsung di database (bukan lewat file)
+
+---
+
 ## 2026-08-19 — Iterasi 11 (Opsional): CRUD Pengguna + Tutup Registrasi Publik
 
 **Iterasi**: 11 (opsional, §6.12)
